@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج حساب ساعات العمل والساعات الإضافية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button id="logoutBtn" class="logout-btn">تسجيل الخروج</button>
+        </header>
+        <h1>برنامج حساب ساعات العمل والساعات الإضافية</h1>
+        <form id="workForm">
+            <div class="input-group">
+                <label for="date">التاريخ:</label>
+                <input type="date" id="date" required>
+            </div>
+            <div class="input-group">
+                <label for="startTime">وقت البدء:</label>
+                <input type="time" id="startTime" required>
+            </div>
+            <div class="input-group">
+                <label for="endTime">وقت الانتهاء:</label>
+                <input type="time" id="endTime" required>
+            </div>
+            <div class="input-group">
+                <label for="hourlyRate">سعر الساعة:</label>
+                <input type="number" id="hourlyRate" placeholder="أدخل سعر الساعة" required>
+                <select id="currency">
+                    <option value="ريال">ريال</option>
+                    <option value="دولار">دولار</option>
+                    <option value="دينار">دينار</option>
+                    <option value="جنيه">جنيه</option>
+                    <option value="شيكل">شيكل</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="overtimeRate">سعر الساعة الإضافية:</label>
+                <input type="number" id="overtimeRate" placeholder="أدخل سعر الساعة الإضافية" required>
+            </div>
+            <button type="button" id="calculateBtn">إضافة السجل</button>
+        </form>
+
+        <div id="totals">
+            <p>عدد ساعات العمل الكلية: <span id="totalWorkHours">0</span> ساعة</p>
+            <p>عدد الساعات الإضافية: <span id="totalOvertime">0</span> ساعة</p>
+            <p>الأجرة الكلية شاملة الساعات الإضافية: <span id="totalEarnings">0</span> </p>
+        </div>
+
+        <table id="workTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>التاريخ</th>
+                    <th>اليوم</th>
+                    <th>وقت البدء</th>
+                    <th>وقت الانتهاء</th>
+                    <th>عدد الساعات</th>
+                    <th>الساعات الإضافية</th>
+                    <th>الإجراءات</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <button id="exportBtn" style="display:none;">تحميل التقرير كملف Excel</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
